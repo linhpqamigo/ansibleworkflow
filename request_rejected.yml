@@ -1,0 +1,11 @@
+# request_rejected.yml
+---
+- name: firewallport open request rejected
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Notify about the firewall request
+      debug:
+        msg: "Request created to open port {{ port }} on server {{ server }} was rejected"
+      # Additional tasks here to log or notify if needed
+
