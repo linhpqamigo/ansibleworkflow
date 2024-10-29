@@ -1,0 +1,11 @@
+# request_firewall.yml
+---
+- name: Create firewall request
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Notify about the firewall request
+      debug:
+        msg: "Request created to open port {{ port }} on server {{ server }}"
+      # Additional tasks here to log or notify if needed
+

@@ -1,0 +1,15 @@
+# open_firewall.yml
+---
+- name: Open firewall port on selected server
+  hosts: "{{ server }}"  # Variable to dynamically select server
+  become: true
+  tasks:
+    - name: Open firewall port
+      firewalld:
+        port: "{{ port }}/tcp"
+        state: enabled
+        permanent: yes
+    - name: Reload firewall
+      firewalld:
+        immediate: yes
+
